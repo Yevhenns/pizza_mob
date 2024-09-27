@@ -2,7 +2,6 @@ import React from 'react';
 import {useState} from 'react';
 import {Controller, SubmitHandler, useForm} from 'react-hook-form';
 import {Text, TextInput, View} from 'react-native';
-import {StyleSheet} from 'react-native';
 import {MaskedTextInput} from 'react-native-mask-text';
 
 import {sendOrder} from '../../../redux/cart/cartOperations';
@@ -10,6 +9,7 @@ import {addInfo, getOrderSum} from '../../../redux/cart/cartSlice';
 import {useAppDispatch, useAppSelector} from '../../../redux/hooks';
 import {Button} from '../../Button';
 import {Checkbox} from '../../Checkbox/Checkbox';
+import {styles} from './CartForm.styles';
 
 interface CartFormProps {
   openModal: () => void;
@@ -172,38 +172,3 @@ export function CartForm({openModal, order}: CartFormProps) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: 5,
-    width: '100%',
-  },
-
-  fieldset: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: 5,
-  },
-
-  input: {
-    width: '100%',
-    padding: 12,
-    borderRadius: 5,
-    borderColor: '#de612b',
-    borderWidth: 1,
-  },
-
-  label: {
-    color: 'black',
-  },
-
-  errorContainer: {
-    height: 20,
-  },
-
-  errorMessage: {
-    color: 'red',
-  },
-});
