@@ -1,0 +1,17 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Comfortaa-Bold.ttf",
+      "sha1": "160e0e5a1010cd45ea124f08a894156e02236551"
+    },
+    {
+      "path": "assets/fonts/Comfortaa-SemiBold.ttf",
+      "sha1": "48890a29aafcb54748ace8dadff63a2dc261fe6c"
+    },
+    {
+      "path": "assets/fonts/Inter-Regular.ttf",
+      "sha1": "cfa780d0b50b2bb7eacb82984f1b18a95aaa40c5"
+    }
+  ]
+}
