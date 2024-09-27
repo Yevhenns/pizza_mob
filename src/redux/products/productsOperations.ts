@@ -1,7 +1,6 @@
 import {BASE_URL} from '@env';
 import {createAsyncThunk} from '@reduxjs/toolkit';
 
-// const BASE_URL = process.env.BASE_URL;
 export const getProducts = createAsyncThunk<
   Product[],
   void,

@@ -1,9 +1,9 @@
 import uuid from 'react-native-uuid';
 
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
 
-import { RootState } from '../store';
-import { sendOrder } from './cartOperations';
+import {RootState} from '../store';
+import {sendOrder} from './cartOperations';
 
 const initialState = {
   filteredBasket: [] as CartItem[],
@@ -17,7 +17,7 @@ const cartSlice = createSlice({
   name: 'basket',
   initialState,
   reducers: {
-    addItem(state, action: { payload: AddtoCartItem }) {
+    addItem(state, action: {payload: AddtoCartItem}) {
       function areOptionsEqual(
         options1: string[],
         options2: string[],
@@ -63,30 +63,30 @@ const cartSlice = createSlice({
         state.filteredBasket = [...state.filteredBasket, newCartItem];
       }
     },
-    deleteItem(state, action: { payload: string }) {
+    deleteItem(state, action: {payload: string}) {
       state.filteredBasket = state.filteredBasket.filter(
         (item: CartItem) => item.cart_id !== action.payload,
       );
     },
-    checkCart(state, action: { payload: Product[] }) {
-      state.filteredBasket = state.filteredBasket.filter(({ _id: id1 }) =>
-        action.payload.some(({ _id: id2 }) => id1 === id2),
+    checkCart(state, action: {payload: Product[]}) {
+      state.filteredBasket = state.filteredBasket.filter(({_id: id1}) =>
+        action.payload.some(({_id: id2}) => id1 === id2),
       );
     },
-    addInfo(state, action: { payload: Info }) {
+    addInfo(state, action: {payload: Info}) {
       state.customerInfo = action.payload;
     },
     deleteAllItems(state) {
       state.filteredBasket = [];
       state.customerInfo = {} as Info;
     },
-    addOrderSum(state, action: { payload: number }) {
+    addOrderSum(state, action: {payload: number}) {
       state.orderSum = action.payload;
     },
     setQuantityAndPrice(
       state,
       action: {
-        payload: { cart_id: string; quantity: number; totalPrice: number };
+        payload: {cart_id: string; quantity: number; totalPrice: number};
       },
     ) {
       const existingItemIndex = state.filteredBasket.findIndex(
