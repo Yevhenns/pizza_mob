@@ -32,7 +32,7 @@ export function ProductListItem({item}: ProductListItemProps) {
     setTotalPromPrice((promPrice + optionsSum) * quantity);
   };
 
-  const optionsTitles = optionsArray.map(item => item.title);
+  const optionsTitles = optionsArray.map(option => option.title);
 
   const addToCart = () => {
     const {photo, title, _id} = item;
@@ -57,7 +57,7 @@ export function ProductListItem({item}: ProductListItemProps) {
   };
 
   const handleChooseOptions = (title: string, isChecked: boolean) => {
-    const optionData = options.find(item => item.title === title);
+    const optionData = options.find(option => option.title === title);
 
     if (optionData !== undefined) {
       if (isChecked && !optionsArray.includes(optionData)) {
@@ -65,7 +65,7 @@ export function ProductListItem({item}: ProductListItemProps) {
         setOptionsSum(optionsSum + optionData.price);
       }
       if (!isChecked && optionsArray.includes(optionData)) {
-        const filteredArray = optionsArray.filter(item => item !== optionData);
+        const filteredArray = optionsArray.filter(optionsArrayItem => optionsArrayItem !== optionData);
         setOptionsArray(filteredArray);
         setOptionsSum(optionsSum - optionData.price);
       }
@@ -73,7 +73,8 @@ export function ProductListItem({item}: ProductListItemProps) {
   };
 
   useEffect(() => {
-    !optionsShown && setOptionsArray([]), setOptionsSum(0);
+    !optionsShown && setOptionsArray([]);
+    setOptionsSum(0);
   }, [optionsShown]);
 
   return (

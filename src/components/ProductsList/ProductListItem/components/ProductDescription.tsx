@@ -46,7 +46,7 @@ export function ProductDescription({item}: ProductDescriptionProps) {
 
   useEffect(() => {
     const checkIsFavoriteProducts = () => {
-      return favoriteProducts.some(item => item._id === _id);
+      return favoriteProducts.some(favoriteProduct => favoriteProduct._id === _id);
     };
     setIsFavorite(checkIsFavoriteProducts);
   }, [_id, favoriteProducts]);
