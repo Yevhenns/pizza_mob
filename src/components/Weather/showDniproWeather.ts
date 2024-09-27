@@ -1,4 +1,4 @@
-const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
+import {WEATHER_API_KEY} from '@env';
 
 export const showDniproWeather = async () => {
   try {
