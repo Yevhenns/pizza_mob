@@ -8,11 +8,13 @@ import {useAppSelector} from '../../redux/hooks';
 import {getFavorites} from '../../redux/products/productsSlice';
 import {CartScreen} from '../../screens/CartScreen';
 import {FavoriteScreen} from '../../screens/FavoriteScreen';
+import {LoginScreen} from '../../screens/LoginScreen';
 import {NewsScreen} from '../../screens/NewsScreen';
 import {Basket} from '../icons/Basket';
 import {Heart} from '../icons/Heart';
 import {Home} from '../icons/Home';
 import {Menu} from '../icons/Menu';
+import {User} from '../icons/User';
 import TopNavigation from './TopNavigation';
 
 const Tab = createBottomTabNavigator();
@@ -36,6 +38,14 @@ const BottomNavigation = () => {
           }}
           name="Новинки"
           component={NewsScreen}
+        />
+
+        <Tab.Screen
+          options={{
+            tabBarIcon: ({color}) => <User color={color} />,
+          }}
+          name="Логін"
+          component={LoginScreen}
         />
 
         <Tab.Screen
