@@ -7,11 +7,11 @@ A mobile application for a [full-stack project](https://github.com/Yevhenns/pizz
 Copy .env.example, rename it to .env and fill the environment variables.
 
 ```bash
-npm i
+yarn
 ```
 
 ```bash
-npm start
+yarn start
 ```
 
 ## Build APK
