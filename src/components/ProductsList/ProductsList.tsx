@@ -31,7 +31,7 @@ export function ProductsList({category}: ProductsListProps) {
   })();
 
   return (
-    <View style={styles.wrapper}>
+    <View style={styles.wrapper} key={category}>
       {data.map(item => {
         return <ProductListItem key={item._id} item={item} />;
       })}

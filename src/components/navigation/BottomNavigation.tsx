@@ -1,8 +1,10 @@
+/* eslint-disable react/no-unstable-nested-components */
 import React from 'react';
 import Toast from 'react-native-toast-message';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
+import {getUserInfo} from '../../redux/auth/authSlice';
 import {getFilteredCart} from '../../redux/cart/cartSlice';
 import {useAppSelector} from '../../redux/hooks';
 import {getFavorites} from '../../redux/products/productsSlice';
@@ -10,6 +12,7 @@ import {CartScreen} from '../../screens/CartScreen';
 import {FavoriteScreen} from '../../screens/FavoriteScreen';
 import {LoginScreen} from '../../screens/LoginScreen';
 import {NewsScreen} from '../../screens/NewsScreen';
+import {Avatar} from '../Avatar';
 import {Basket} from '../icons/Basket';
 import {Heart} from '../icons/Heart';
 import {Home} from '../icons/Home';
@@ -22,6 +25,7 @@ const Tab = createBottomTabNavigator();
 const BottomNavigation = () => {
   const cartLength = useAppSelector(getFilteredCart).length;
   const favoriteLength = useAppSelector(getFavorites).length;
+  const userInfo = useAppSelector(getUserInfo);
 
   return (
     <>
@@ -42,7 +46,9 @@ const BottomNavigation = () => {
 
         <Tab.Screen
           options={{
-            tabBarIcon: ({color}) => <User color={color} />,
+            tabBarIcon: ({color}) => {
+              return userInfo === null ? <User color={color} /> : <Avatar />;
+            },
           }}
           name="Логін"
           component={LoginScreen}
