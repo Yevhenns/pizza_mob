@@ -13,7 +13,7 @@ import {styles} from './CartForm.styles';
 
 interface CartFormProps {
   openModal: () => void;
-  order: Ordered;
+  order: Ordered[];
 }
 
 export function CartForm({openModal, order}: CartFormProps) {

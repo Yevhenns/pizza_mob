@@ -1,64 +1,10 @@
-type Product = {
-  _id: string;
-  title: string;
-  description: string;
-  dimension: string;
-  price: number;
-  photo: string;
-  category: string;
-  promotion: boolean;
-  promPrice: number;
-  vegan: boolean;
-};
-
-type Info = {
-  address?: string | undefined;
-  comment?: string;
-  delivery: boolean;
-  name: string;
-  number: string;
-};
-
-type Ordered = Pick<CartItem, 'title' | 'quantity' | 'optionsTitles'>[];
-
-type SummaryOrder = {
-  customerInfo: Info;
-  order: Ordered;
-  orderSum: number;
-};
-
-type AddtoCartItem = {
-  _id: string;
-  photo: string;
-  quantity: number;
-  title: string;
-  totalPrice: number;
-  optionsTitles: string[];
-};
-
-type CartItem = {
-  cart_id: string;
-  _id: string;
-  photo: string;
-  quantity: number;
-  title: string;
-  totalPrice: number;
-  optionsTitles: string[];
-};
-
-type ProductItem = {
-  _id: string;
-  totalQuantity: number;
-  promotion: boolean;
-  totalPrice: number;
-  totalPromPrice: number;
-};
-
-type ProductsResponse = {
-  code: number;
-  status: string;
-  data: TProductsArr;
-};
+// type ProductItem = {
+//   _id: string;
+//   totalQuantity: number;
+//   promotion: boolean;
+//   totalPrice: number;
+//   totalPromPrice: number;
+// };
 
 type WeatherApiResponse = {
   location: {
@@ -96,9 +42,10 @@ type ForecastDay = {
   icon: string;
 };
 
-type Option = {
-  id: string;
-  price: number;
-  title: string;
-  vegan: boolean;
+type UserOrders = {
+  _id: string;
+  customerInfo: Info;
+  order: ({_id: string} & Ordered)[];
+  orderSum: number;
+  createdAt: string;
 };

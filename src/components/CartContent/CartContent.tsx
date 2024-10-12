@@ -22,7 +22,7 @@ export function CartContent({deleteAllProducts, openModal}: CartContentProps) {
 
   const dispatch = useAppDispatch();
 
-  const order: Ordered = filteredCart.map(item => {
+  const order: Ordered[] = filteredCart.map(item => {
     return {
       title: item.title,
       quantity: item.quantity,

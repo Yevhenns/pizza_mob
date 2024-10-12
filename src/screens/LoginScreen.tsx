@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {useDispatch} from 'react-redux';
 
 import {CLIENTID} from '@env';
 import {
@@ -9,16 +8,22 @@ import {
   statusCodes,
 } from '@react-native-google-signin/google-signin';
 
-import {Button} from '../components/Button';
+import {UserOrders} from '../components/UserOrders';
 import {addUserInfo, getUserInfo, logout} from '../redux/auth/authSlice';
-import {useAppSelector} from '../redux/hooks';
+import {useAppDispatch, useAppSelector} from '../redux/hooks';
+import {getUserProducts} from '../redux/userOrders/userOrdersOperations';
+import {
+  getUserProductsAll,
+  setUserId,
+} from '../redux/userOrders/userOrdersSlice';
 
 export function LoginScreen() {
   const [error, setError] = useState(null);
 
   const userInfo = useAppSelector(getUserInfo);
+  const userOrders = useAppSelector(getUserProductsAll);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const signIn = async () => {
     try {
@@ -40,7 +45,7 @@ export function LoginScreen() {
     }
   };
 
-  const signOut = async () => {
+  const logoutHandler = async () => {
     try {
       await GoogleSignin.signOut();
       dispatch(logout());
@@ -56,13 +61,21 @@ export function LoginScreen() {
     });
   }, []);
 
+  useEffect(() => {
+    if (userInfo?.data?.user.id) {
+      dispatch(setUserId(userInfo.data.user.id));
+      dispatch(getUserProducts(userInfo.data.user.id));
+    }
+  }, [dispatch, userInfo?.data?.user.id]);
+
   return (
     <View style={styles.container}>
-      {userInfo ? (
-        <View style={styles.userInfo}>
-          <Text>Привіт, {userInfo.data?.user.name}!</Text>
-          <Button onPress={signOut}>Вийти</Button>
-        </View>
+      {userInfo !== null ? (
+        <UserOrders
+          logoutHandler={logoutHandler}
+          userInfo={userInfo}
+          userOrders={userOrders}
+        />
       ) : (
         <GoogleSigninButton
           style={styles.signInButton}
@@ -86,11 +99,6 @@ const styles = StyleSheet.create({
   signInButton: {
     width: 230,
     height: 48,
-  },
-
-  userInfo: {
-    alignItems: 'center',
-    marginTop: 20,
   },
 
   errorText: {
