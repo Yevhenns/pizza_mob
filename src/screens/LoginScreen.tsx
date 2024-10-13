@@ -11,17 +11,12 @@ import {
 import {UserOrders} from '../components/UserOrders';
 import {addUserInfo, getUserInfo, logout} from '../redux/auth/authSlice';
 import {useAppDispatch, useAppSelector} from '../redux/hooks';
-import {getUserProducts} from '../redux/userOrders/userOrdersOperations';
-import {
-  getUserProductsAll,
-  setUserId,
-} from '../redux/userOrders/userOrdersSlice';
+import {setUserId} from '../redux/userOrders/userOrdersSlice';
 
 export function LoginScreen() {
   const [error, setError] = useState(null);
 
   const userInfo = useAppSelector(getUserInfo);
-  const userOrders = useAppSelector(getUserProductsAll);
 
   const dispatch = useAppDispatch();
 
@@ -64,18 +59,13 @@ export function LoginScreen() {
   useEffect(() => {
     if (userInfo?.data?.user.id) {
       dispatch(setUserId(userInfo.data.user.id));
-      dispatch(getUserProducts(userInfo.data.user.id));
     }
   }, [dispatch, userInfo?.data?.user.id]);
 
   return (
-    <View style={styles.container}>
+    <View style={userInfo === null ? styles.container : styles.filledContainer}>
       {userInfo !== null ? (
-        <UserOrders
-          logoutHandler={logoutHandler}
-          userInfo={userInfo}
-          userOrders={userOrders}
-        />
+        <UserOrders logoutHandler={logoutHandler} userInfo={userInfo} />
       ) : (
         <GoogleSigninButton
           style={styles.signInButton}
@@ -94,6 +84,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+
+  filledContainer: {
+    flex: 1,
+    padding: 10,
   },
 
   signInButton: {
