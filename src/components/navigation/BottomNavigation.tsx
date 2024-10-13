@@ -65,7 +65,7 @@ const BottomNavigation = () => {
         <Tab.Screen
           options={{
             tabBarIcon: ({color}) => <Heart color={color} />,
-            tabBarBadge: favoriteLength,
+            tabBarBadge: favoriteLength > 0 ? favoriteLength : undefined,
           }}
           name="Улюблене"
           component={FavoriteScreen}
@@ -74,7 +74,7 @@ const BottomNavigation = () => {
         <Tab.Screen
           options={{
             tabBarIcon: ({color}) => <Basket color={color} />,
-            tabBarBadge: cartLength,
+            tabBarBadge: cartLength > 0 ? cartLength : undefined,
           }}
           name="Кошик"
           component={CartScreen}
