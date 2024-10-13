@@ -6,8 +6,12 @@ import {SignInResponse} from '@react-native-google-signin/google-signin';
 import {formattedDate} from '../helpers/formattedDate';
 import {useAppDispatch, useAppSelector} from '../redux/hooks';
 import {getUserProducts} from '../redux/userOrders/userOrdersOperations';
-import {getUserProductsAll} from '../redux/userOrders/userOrdersSlice';
+import {
+  getIsLoading,
+  getUserProductsAll,
+} from '../redux/userOrders/userOrdersSlice';
 import {Button} from './Button';
+import {Loader} from './Loader';
 
 type UserOrdersProps = {
   logoutHandler: () => void;
@@ -16,6 +20,7 @@ type UserOrdersProps = {
 
 export function UserOrders({logoutHandler, userInfo}: UserOrdersProps) {
   const userOrders = useAppSelector(getUserProductsAll);
+  const isLoading = useAppSelector(getIsLoading);
 
   const dispatch = useAppDispatch();
 
@@ -24,6 +29,10 @@ export function UserOrders({logoutHandler, userInfo}: UserOrdersProps) {
       dispatch(getUserProducts(userInfo.data?.user.id));
     }
   }, [dispatch, userInfo.data?.user.id, userOrders]);
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <View style={styles.userInfoWrapper}>
