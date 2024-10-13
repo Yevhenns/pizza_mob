@@ -4,6 +4,7 @@ import {Controller, SubmitHandler, useForm} from 'react-hook-form';
 import {Text, TextInput, View} from 'react-native';
 import {MaskedTextInput} from 'react-native-mask-text';
 
+import {getUserInfo} from '../../../redux/auth/authSlice';
 import {sendOrder} from '../../../redux/cart/cartOperations';
 import {addInfo, getOrderSum} from '../../../redux/cart/cartSlice';
 import {useAppDispatch, useAppSelector} from '../../../redux/hooks';
@@ -27,15 +28,16 @@ export function CartForm({openModal, order}: CartFormProps) {
 
   const orderSum = useAppSelector(getOrderSum);
   const dispatch = useAppDispatch();
+  const userId = useAppSelector(getUserInfo)?.data?.user.id;
 
-  const onSubmit: SubmitHandler<Info> = data => {
+  const onSubmit: SubmitHandler<Info> = ({address, comment, name, number}) => {
     openModal();
     const customerInfo: Info = {
-      address: data.address,
-      comment: data.comment,
-      delivery: data.delivery,
-      name: data.name,
-      number: data.number,
+      address,
+      comment,
+      name,
+      number,
+      userId,
     };
     dispatch(addInfo(customerInfo));
     const reqBody: SummaryOrder = {customerInfo, order, orderSum};
