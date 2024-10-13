@@ -14,18 +14,18 @@ export function Button({children, ...props}: ButtonProps) {
 
 const styles = StyleSheet.create({
   button: {
-    height: 38,
+    height: 50,
     paddingHorizontal: 24,
-    alignItems: 'center',
     borderRadius: 12,
     backgroundColor: '#de612b',
-    fontSize: 18,
     display: 'flex',
+    alignItems: 'center',
     justifyContent: 'center',
   },
+
   buttonText: {
     color: 'white',
-    fontSize: 18,
+    fontSize: 20,
     fontFamily: 'Comfortaa-Bold',
   },
 });
