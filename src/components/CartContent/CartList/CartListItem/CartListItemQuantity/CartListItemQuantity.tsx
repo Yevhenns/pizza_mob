@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginLeft: 'auto',
   },
+
   text: {
     fontSize: 16,
     fontFamily: 'Inter-Regular',

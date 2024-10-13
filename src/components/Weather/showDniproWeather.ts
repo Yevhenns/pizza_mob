@@ -1,6 +1,6 @@
-import {WEATHER_API_KEY} from '@env';
+const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
 
-export const showDniproWeather = async () => {
+export const showDniproWeather = async (): Promise<FilteredApiResponse> => {
   try {
     const res = await fetch(
       `https://api.weatherapi.com/v1/forecast.json?q=Dnipropetrovsk&days=3&lang=uk&key=${WEATHER_API_KEY}`,

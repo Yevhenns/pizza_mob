@@ -11,7 +11,7 @@ import {
 import {useAppSelector} from '../redux/hooks';
 import {Button} from './Button';
 import {Error500} from './Error500';
-import Loader from './Loader';
+import {Loader} from './Loader';
 
 interface FinalModalProps {
   finalAction: () => void;

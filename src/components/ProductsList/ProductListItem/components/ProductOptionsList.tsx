@@ -44,12 +44,14 @@ const styles = StyleSheet.create({
     display: 'flex',
     gap: 6,
   },
+
   productItem: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
   },
+
   optionPrice: {
     fontFamily: 'Inter-Regular',
     fontSize: 16,

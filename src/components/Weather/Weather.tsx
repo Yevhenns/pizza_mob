@@ -1,16 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
 
+import {formattedDate} from '../../helpers/formattedDate';
 import {showDniproWeather} from './showDniproWeather';
 
 export function Weather() {
   const [weather, setWeather] = useState<[] | ForecastDay[]>([]);
 
   useEffect(() => {
-    showDniproWeather().then((data: FilteredApiResponse) => {
+    showDniproWeather().then(data => {
       const newArray = data.map(item => {
         return {
-          date: item.date.split('-').reverse().join('.'),
+          date: formattedDate(item.date),
           avgtemp: item.day.avgtemp_c,
           conditionText: item.day.condition.text,
           icon: 'https:' + item.day.condition.icon,

@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
   },
+
   map: {
     width: Dimensions.get('window').width,
     height: 300,

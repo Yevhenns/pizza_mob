@@ -3,22 +3,27 @@ import {useEffect, useState} from 'react';
 import {Text, View} from 'react-native';
 import {StyleSheet} from 'react-native';
 
-import {addOrderSum, getFilteredCart} from '../../../redux/cart/cartSlice';
+import {
+  addOrderSum,
+  deleteAllItems,
+  getFilteredCart,
+} from '../../../redux/cart/cartSlice';
 import {useAppDispatch, useAppSelector} from '../../../redux/hooks';
 import {Button} from '../../Button';
 import {CartListItem} from './CartListItem/CartListItem';
 
-interface CartListProps {
-  deleteCartItem: (cart_id: string) => void;
-  deleteAllProducts: () => void;
-}
+interface CartListProps {}
 
-export function CartList({deleteCartItem, deleteAllProducts}: CartListProps) {
+export function CartList({}: CartListProps) {
   const [sum, setSum] = useState(0);
 
   const filteredCart = useAppSelector(getFilteredCart);
 
   const dispatch = useAppDispatch();
+
+  const deleteAllProducts = () => {
+    dispatch(deleteAllItems());
+  };
 
   useEffect(() => {
     const totalSum = filteredCart.reduce(
@@ -32,13 +37,7 @@ export function CartList({deleteCartItem, deleteAllProducts}: CartListProps) {
   return (
     <View style={styles.cartList}>
       {filteredCart.map(data => {
-        return (
-          <CartListItem
-            key={data.cart_id}
-            deleteCartItem={deleteCartItem}
-            data={data}
-          />
-        );
+        return <CartListItem key={data.cart_id} data={data} />;
       })}
       <Text style={styles.totalPayment}>До сплати: {sum} грн</Text>
       <Button onPress={deleteAllProducts}>Очистити кошик</Button>
@@ -52,6 +51,7 @@ const styles = StyleSheet.create({
     gap: 5,
     marginBottom: 20,
   },
+
   totalPayment: {
     marginBottom: 20,
     textAlign: 'center',

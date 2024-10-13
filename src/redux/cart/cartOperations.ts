@@ -1,6 +1,7 @@
-import {BASE_URL} from '@env';
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import axios from 'axios';
+
+const BASE_URL = process.env.BASE_URL;
 
 export const sendOrder = createAsyncThunk<
   number,

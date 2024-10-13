@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-import {CLIENTID} from '@env';
 import {
   GoogleSignin,
   GoogleSigninButton,
@@ -12,6 +11,8 @@ import {UserOrders} from '../components/UserOrders';
 import {addUserInfo, getUserInfo, logout} from '../redux/auth/authSlice';
 import {useAppDispatch, useAppSelector} from '../redux/hooks';
 import {setUserId} from '../redux/userOrders/userOrdersSlice';
+
+const CLIENTID = process.env.CLIENTID;
 
 export function LoginScreen() {
   const [error, setError] = useState(null);

@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 10,
   },
+
   text: {
     fontFamily: 'Inter-Regular',
     fontSize: 16,

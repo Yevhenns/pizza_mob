@@ -10,7 +10,7 @@ import {
   getProductsAll,
 } from '../redux/products/productsSlice';
 import {Error500} from './Error500';
-import Loader from './Loader';
+import {Loader} from './Loader';
 
 type PagesWrapperProps = PropsWithChildren;
 

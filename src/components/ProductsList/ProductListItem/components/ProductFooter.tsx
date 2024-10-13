@@ -39,20 +39,24 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'row',
   },
+
   priceWrapper: {
     flexDirection: 'column',
   },
+
   promPrice: {
     fontFamily: 'Comfortaa-Bold',
     fontSize: 18,
     color: '#de612b',
   },
+
   oldPrice: {
     fontFamily: 'Comfortaa-Bold',
     fontSize: 16,
     color: 'black',
     textDecorationLine: 'line-through',
   },
+
   inBasketContainer: {
     flexDirection: 'row',
     gap: 10,

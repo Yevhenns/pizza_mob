@@ -3,16 +3,23 @@ import {Image, Text, View} from 'react-native';
 import {StyleSheet} from 'react-native';
 
 import {Remove} from '../../../../components/icons/Remove';
+import {deleteItem} from '../../../../redux/cart/cartSlice';
+import {useAppDispatch} from '../../../../redux/hooks';
 import {IconButton} from '../../../IconButton';
 import {CartListItemQuantity} from './CartListItemQuantity/CartListItemQuantity';
 
 interface CartListItemProps {
   data: CartItem;
-  deleteCartItem: (cart_id: string) => void;
 }
 
-export function CartListItem({data, deleteCartItem}: CartListItemProps) {
+export function CartListItem({data}: CartListItemProps) {
   const {cart_id, photo, title, quantity, totalPrice, optionsTitles} = data;
+
+  const dispatch = useAppDispatch();
+
+  const deleteCartItem = () => {
+    dispatch(deleteItem(cart_id));
+  };
 
   return (
     <View style={styles.wrapper}>
@@ -25,9 +32,7 @@ export function CartListItem({data, deleteCartItem}: CartListItemProps) {
           price={totalPrice}
         />
         <Text style={styles.totalPrice}>{totalPrice} грн</Text>
-        <IconButton
-          style={styles.deleteButton}
-          onPress={() => deleteCartItem(cart_id)}>
+        <IconButton style={styles.deleteButton} onPress={deleteCartItem}>
           <Remove color={'#de612b'} />
         </IconButton>
       </View>
@@ -55,6 +60,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 5,
   },
+
   mainContent: {
     width: '100%',
     flexDirection: 'row',
@@ -63,15 +69,18 @@ const styles = StyleSheet.create({
     marginRight: 'auto',
     alignItems: 'center',
   },
+
   totalPrice: {
     fontSize: 16,
     fontFamily: 'Inter-Regular',
     flexBasis: 65,
     color: '#000000',
   },
+
   deleteButton: {
     flexBasis: 32,
   },
+
   text: {
     fontSize: 16,
     fontFamily: 'Inter-Regular',

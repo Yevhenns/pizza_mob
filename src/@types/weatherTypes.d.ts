@@ -1,11 +1,3 @@
-// type ProductItem = {
-//   _id: string;
-//   totalQuantity: number;
-//   promotion: boolean;
-//   totalPrice: number;
-//   totalPromPrice: number;
-// };
-
 type WeatherApiResponse = {
   location: {
     name: string;

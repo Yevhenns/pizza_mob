@@ -32,10 +32,7 @@ export function CartScreen() {
   return (
     <PagesWrapper>
       <View>
-        <CartContent
-          deleteAllProducts={deleteAllProducts}
-          openModal={openModal}
-        />
+        <CartContent openModal={openModal} />
         {open && <FinalModal finalAction={deleteAllProducts} />}
       </View>
     </PagesWrapper>
