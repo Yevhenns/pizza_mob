@@ -60,7 +60,7 @@ export function CartForm({openModal, order}: CartFormProps) {
         }}
         render={({field: {onChange, onBlur, value}}) => (
           <View style={styles.fieldset}>
-            <Text style={styles.label}>Ім'я</Text>
+            <Text style={styles.label}>* Ім'я</Text>
             <TextInput
               style={styles.input}
               placeholder="Введіть ім'я"
@@ -89,7 +89,7 @@ export function CartForm({openModal, order}: CartFormProps) {
         }}
         render={({field: {onChange, onBlur, value}}) => (
           <View style={styles.fieldset}>
-            <Text style={styles.label}>Номер телефону</Text>
+            <Text style={styles.label}>* Номер телефону</Text>
             <MaskedTextInput
               mask="(099) 999-99-99"
               style={styles.input}
@@ -128,7 +128,7 @@ export function CartForm({openModal, order}: CartFormProps) {
             }
             render={({field: {onChange, onBlur, value}}) => (
               <View style={styles.fieldset}>
-                <Text style={styles.label}>Адреса</Text>
+                <Text style={styles.label}>* Адреса</Text>
                 <TextInput
                   style={styles.input}
                   placeholder="Введіть адресу"

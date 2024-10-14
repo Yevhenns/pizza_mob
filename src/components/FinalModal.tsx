@@ -2,6 +2,7 @@ import React from 'react';
 import {Modal, Text, View} from 'react-native';
 import {StyleSheet} from 'react-native';
 
+import {colors} from '../assets/styleVariables';
 import {
   getError,
   getFilteredCart,
@@ -64,9 +65,7 @@ export function FinalModal({finalAction}: FinalModalProps) {
           <View>
             <Text style={styles.text}>Загальна сума: {sum} грн.</Text>
           </View>
-          <Button onPress={finalAction}>
-            <Text style={styles.buttonText}>Вийти</Text>
-          </Button>
+          <Button onPress={finalAction}>Вийти</Button>
         </View>
       )}
     </Modal>
@@ -104,12 +103,7 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    color: '#000000',
+    color: colors.blackColor,
     fontSize: 16,
-  },
-
-  buttonText: {
-    fontSize: 16,
-    color: 'white',
   },
 });

@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
 
+import {colors} from '../../assets/styleVariables';
 import {formattedDate} from '../../helpers/formattedDate';
 import {showDniproWeather} from './showDniproWeather';
 
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
 
   heading: {
     fontFamily: 'Comfortaa-SemiBold',
-    color: 'black',
+    color: colors.blackColor,
     textAlign: 'center',
     fontSize: 18,
     marginBottom: 10,
@@ -73,7 +74,7 @@ const styles = StyleSheet.create({
 
   text: {
     fontFamily: 'Comfortaa-SemiBold',
-    color: 'black',
+    color: colors.blackColor,
     textAlign: 'center',
     fontSize: 16,
   },

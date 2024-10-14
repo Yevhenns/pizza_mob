@@ -3,6 +3,7 @@ import {StyleSheet, Text, View} from 'react-native';
 
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 
+import {colors} from '../assets/styleVariables';
 import {GoogleSigninBtn} from '../components/GoogleSigninBtn';
 import {UserOrders} from '../components/UserOrders/UserOrders';
 import {getUserInfo, logout} from '../redux/auth/authSlice';
@@ -29,6 +30,7 @@ export function LoginScreen() {
       console.error('Sign out error', err);
     }
   };
+  console.log(typeof GoogleSignin);
 
   useEffect(() => {
     if (userInfo?.data?.user.id) {
@@ -42,7 +44,10 @@ export function LoginScreen() {
       {userInfo !== null ? (
         <UserOrders logoutHandler={logoutHandler} userInfo={userInfo} />
       ) : (
-        <GoogleSigninBtn setLoginError={setLoginError} />
+        <GoogleSigninBtn
+          setLoginError={setLoginError}
+          GoogleSignin={GoogleSignin}
+        />
       )}
       {error && <Text style={styles.errorText}>Помилка входу</Text>}
     </View>
@@ -62,7 +67,7 @@ const styles = StyleSheet.create({
   },
 
   errorText: {
-    color: 'red',
+    color: colors.errorColor,
     marginTop: 10,
   },
 });

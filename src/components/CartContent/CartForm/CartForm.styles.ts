@@ -1,5 +1,7 @@
 import {StyleSheet} from 'react-native';
 
+import {colors} from '../../../assets/styleVariables';
+
 export const styles = StyleSheet.create({
   form: {
     display: 'flex',
@@ -18,12 +20,12 @@ export const styles = StyleSheet.create({
     width: '100%',
     padding: 12,
     borderRadius: 5,
-    borderColor: '#de612b',
+    borderColor: colors.accentColor,
     borderWidth: 1,
   },
 
   label: {
-    color: 'black',
+    color: colors.blackColor,
   },
 
   errorContainer: {
@@ -31,6 +33,6 @@ export const styles = StyleSheet.create({
   },
 
   errorMessage: {
-    color: 'red',
+    color: colors.errorColor,
   },
 });

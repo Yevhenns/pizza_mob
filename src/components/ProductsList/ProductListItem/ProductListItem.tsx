@@ -3,6 +3,7 @@ import {StyleSheet, View} from 'react-native';
 import Toast from 'react-native-toast-message';
 
 import {options} from '../../../assets/options';
+import {colors} from '../../../assets/styleVariables';
 import {addItem} from '../../../redux/cart/cartSlice';
 import {useAppDispatch} from '../../../redux/hooks';
 import {ProductDescription} from './components/ProductDescription';
@@ -65,7 +66,9 @@ export function ProductListItem({item}: ProductListItemProps) {
         setOptionsSum(optionsSum + optionData.price);
       }
       if (!isChecked && optionsArray.includes(optionData)) {
-        const filteredArray = optionsArray.filter(optionsArrayItem => optionsArrayItem !== optionData);
+        const filteredArray = optionsArray.filter(
+          optionsArrayItem => optionsArrayItem !== optionData,
+        );
         setOptionsArray(filteredArray);
         setOptionsSum(optionsSum - optionData.price);
       }
@@ -106,8 +109,8 @@ export function ProductListItem({item}: ProductListItemProps) {
 const styles = StyleSheet.create({
   listItem: {
     flex: 1,
-    backgroundColor: '#fff',
-    color: 'black',
+    backgroundColor: colors.whiteColor,
+    color: colors.blackColor,
     padding: 24,
     borderRadius: 10,
     position: 'relative',

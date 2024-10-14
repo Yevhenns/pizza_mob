@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react';
 import {Text, View} from 'react-native';
 import {StyleSheet} from 'react-native';
 
+import {colors} from '../../../../../assets/styleVariables';
 import {ChevronLeft} from '../../../../../components/icons/ChevronLeft';
 import {ChevronRight} from '../../../../../components/icons/ChevronRight';
 import {setQuantityAndPrice} from '../../../../../redux/cart/cartSlice';
@@ -63,6 +64,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
     fontFamily: 'Inter-Regular',
-    color: '#000000',
+    color: colors.blackColor,
   },
 });

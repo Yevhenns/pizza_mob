@@ -4,6 +4,7 @@ import Toast from 'react-native-toast-message';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
+import {colors} from '../../assets/styleVariables';
 import {getUserInfo} from '../../redux/auth/authSlice';
 import {getFilteredCart} from '../../redux/cart/cartSlice';
 import {useAppSelector} from '../../redux/hooks';
@@ -32,9 +33,9 @@ const BottomNavigation = () => {
       <Tab.Navigator
         screenOptions={{
           tabBarShowLabel: false,
-          tabBarStyle: {backgroundColor: '#de612b'},
-          tabBarActiveTintColor: 'white',
-          tabBarInactiveTintColor: 'black',
+          tabBarStyle: {backgroundColor: colors.accentColor},
+          tabBarActiveTintColor: colors.whiteColor,
+          tabBarInactiveTintColor: colors.blackColor,
         }}>
         <Tab.Screen
           options={{

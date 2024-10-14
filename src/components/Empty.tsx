@@ -2,6 +2,8 @@ import React from 'react';
 import {Image, Text, View} from 'react-native';
 import {StyleSheet} from 'react-native';
 
+import {colors} from '../assets/styleVariables';
+
 export function Empty() {
   return (
     <View style={styles.emptyCart}>
@@ -27,6 +29,6 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: 'Inter-Regular',
     fontSize: 16,
-    color: '#000000',
+    color: colors.blackColor,
   },
 });

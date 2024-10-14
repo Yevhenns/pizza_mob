@@ -3,6 +3,7 @@ import {useEffect, useState} from 'react';
 import {Text, View} from 'react-native';
 import {StyleSheet} from 'react-native';
 
+import {colors} from '../../../assets/styleVariables';
 import {
   addOrderSum,
   deleteAllItems,
@@ -57,6 +58,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: 'Inter-Regular',
     fontSize: 16,
-    color: '#000000',
+    color: colors.blackColor,
   },
 });

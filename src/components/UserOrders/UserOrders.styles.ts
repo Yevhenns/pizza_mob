@@ -1,5 +1,7 @@
 import {StyleSheet} from 'react-native';
 
+import {colors} from '../../assets/styleVariables';
+
 export const styles = StyleSheet.create({
   userInfoWrapper: {
     display: 'flex',
@@ -25,7 +27,7 @@ export const styles = StyleSheet.create({
 
   order: {
     borderBottomWidth: 1,
-    borderColor: 'tomato',
+    borderColor: colors.accentColor,
     borderRadius: 10,
     padding: 5,
   },

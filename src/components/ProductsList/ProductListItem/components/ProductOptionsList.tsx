@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
+import {colors} from '../../../../assets/styleVariables';
 import {CheckboxOption} from '../../../Checkbox/CheckboxOption';
 
 type ProductOptionsListProps = {
@@ -55,6 +56,6 @@ const styles = StyleSheet.create({
   optionPrice: {
     fontFamily: 'Inter-Regular',
     fontSize: 16,
-    color: '#000000',
+    color: colors.blackColor,
   },
 });

@@ -2,6 +2,7 @@ import React from 'react';
 import {Image, Text, View} from 'react-native';
 import {StyleSheet} from 'react-native';
 
+import {colors} from '../../../../assets/styleVariables';
 import {Remove} from '../../../../components/icons/Remove';
 import {deleteItem} from '../../../../redux/cart/cartSlice';
 import {useAppDispatch} from '../../../../redux/hooks';
@@ -55,7 +56,7 @@ export function CartListItem({data}: CartListItemProps) {
 
 const styles = StyleSheet.create({
   wrapper: {
-    borderColor: '#de612b',
+    borderColor: colors.accentColor,
     borderWidth: 2,
     borderRadius: 10,
     padding: 5,
@@ -74,7 +75,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: 'Inter-Regular',
     flexBasis: 65,
-    color: '#000000',
+    color: colors.blackColor,
   },
 
   deleteButton: {

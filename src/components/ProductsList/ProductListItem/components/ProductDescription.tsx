@@ -3,6 +3,7 @@ import {Image, Text, View} from 'react-native';
 import {StyleSheet} from 'react-native';
 import Toast from 'react-native-toast-message';
 
+import {colors} from '../../../../assets/styleVariables';
 import {Heart} from '../../../../components/icons/Heart';
 import {HeartFilled} from '../../../../components/icons/HeartFilled';
 import {useAppDispatch, useAppSelector} from '../../../../redux/hooks';
@@ -46,7 +47,9 @@ export function ProductDescription({item}: ProductDescriptionProps) {
 
   useEffect(() => {
     const checkIsFavoriteProducts = () => {
-      return favoriteProducts.some(favoriteProduct => favoriteProduct._id === _id);
+      return favoriteProducts.some(
+        favoriteProduct => favoriteProduct._id === _id,
+      );
     };
     setIsFavorite(checkIsFavoriteProducts);
   }, [_id, favoriteProducts]);
@@ -100,13 +103,13 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: 'Comfortaa-Bold',
     fontSize: 24,
-    color: '#000000',
+    color: colors.blackColor,
   },
 
   text: {
     fontFamily: 'Inter-Regular',
     fontSize: 16,
-    color: '#989898',
+    color: colors.greyColor,
   },
 
   img: {
@@ -118,7 +121,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 0,
     left: 0,
-    backgroundColor: '#de612b',
+    backgroundColor: colors.accentColor,
     width: 64,
     height: 24,
     borderRadius: 12,
@@ -129,7 +132,7 @@ const styles = StyleSheet.create({
 
   promotionText: {
     fontFamily: 'Comfortaa-SemiBold',
-    color: 'white',
+    color: colors.whiteColor,
   },
 
   favorite: {

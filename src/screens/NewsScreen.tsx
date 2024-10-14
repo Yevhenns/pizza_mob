@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text} from 'react-native';
 
+import {colors} from '../assets/styleVariables';
 import {HorizontalCarousel} from '../components/HorizontalCarousel';
 import {GoogleMap} from '../components/Maps';
 import {PagesWrapper} from '../components/PagesWrapper';
@@ -21,7 +22,7 @@ export function NewsScreen() {
 
 const styles = StyleSheet.create({
   title: {
-    color: 'black',
+    color: colors.blackColor,
     fontSize: 18,
     textAlign: 'center',
     fontFamily: 'Comfortaa-SemiBold',

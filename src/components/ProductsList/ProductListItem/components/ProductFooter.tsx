@@ -2,6 +2,7 @@ import React from 'react';
 import {Text, View} from 'react-native';
 import {StyleSheet} from 'react-native';
 
+import {colors} from '../../../../assets/styleVariables';
 import {Button} from '../../../Button';
 
 type ProductFooterProps = {
@@ -47,13 +48,13 @@ const styles = StyleSheet.create({
   promPrice: {
     fontFamily: 'Comfortaa-Bold',
     fontSize: 18,
-    color: '#de612b',
+    color: colors.accentColor,
   },
 
   oldPrice: {
     fontFamily: 'Comfortaa-Bold',
     fontSize: 16,
-    color: 'black',
+    color: colors.blackColor,
     textDecorationLine: 'line-through',
   },
 

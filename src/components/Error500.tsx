@@ -1,6 +1,8 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
+import {colors} from '../assets/styleVariables';
+
 export function Error500() {
   return (
     <View style={styles.modal}>
@@ -19,6 +21,6 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    color: 'black',
+    color: colors.blackColor,
   },
 });

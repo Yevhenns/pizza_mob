@@ -2,8 +2,8 @@ import React, {useEffect} from 'react';
 import {StyleSheet} from 'react-native';
 
 import {
-  GoogleSignin,
   GoogleSigninButton,
+  GoogleSignin as GoogleSigninType,
   statusCodes,
 } from '@react-native-google-signin/google-signin';
 
@@ -14,8 +14,13 @@ const CLIENTID = process.env.CLIENTID;
 
 type GoogleSigninBtnProps = {
   setLoginError: (liginError: React.SetStateAction<null | any>) => void;
+  GoogleSignin: typeof GoogleSigninType;
 };
-export function GoogleSigninBtn({setLoginError}: GoogleSigninBtnProps) {
+
+export function GoogleSigninBtn({
+  setLoginError,
+  GoogleSignin,
+}: GoogleSigninBtnProps) {
   const dispatch = useAppDispatch();
 
   const signIn = async () => {
@@ -43,7 +48,7 @@ export function GoogleSigninBtn({setLoginError}: GoogleSigninBtnProps) {
       webClientId: CLIENTID,
       offlineAccess: true,
     });
-  }, []);
+  }, [GoogleSignin]);
 
   return (
     <GoogleSigninButton

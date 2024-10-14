@@ -7,6 +7,8 @@ import {
   View,
 } from 'react-native';
 
+import {colors} from '../../assets/styleVariables';
+
 interface CheckboxOptionProps extends TouchableOpacityProps {
   title: string;
   handleChange: (title: string, isChecked: boolean) => void;
@@ -43,7 +45,7 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     borderWidth: 2,
-    borderColor: '#de612b',
+    borderColor: colors.accentColor,
     borderRadius: 10,
     display: 'flex',
     alignItems: 'center',
@@ -57,6 +59,6 @@ const styles = StyleSheet.create({
   },
   label: {
     fontFamily: 'Inter-Regular',
-    color: '#000000',
+    color: colors.blackColor,
   },
 });
