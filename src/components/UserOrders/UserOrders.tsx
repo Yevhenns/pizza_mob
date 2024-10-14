@@ -36,7 +36,12 @@ export function UserOrders({logoutHandler, userInfo}: UserOrdersProps) {
   };
 
   if (isLoading === true) {
-    return <Loader />;
+    return (
+      <View style={styles.loadingWrapper}>
+        <Loader />
+        <Text style={styles.text}>Будь ласка зачекайте</Text>
+      </View>
+    );
   }
 
   return (

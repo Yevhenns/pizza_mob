@@ -30,7 +30,6 @@ export function LoginScreen() {
       console.error('Sign out error', err);
     }
   };
-  console.log(typeof GoogleSignin);
 
   useEffect(() => {
     if (userInfo?.data?.user.id) {

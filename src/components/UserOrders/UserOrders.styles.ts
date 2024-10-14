@@ -43,4 +43,10 @@ export const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
   },
+
+  loadingWrapper: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
