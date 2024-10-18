@@ -24,8 +24,8 @@ export function LoginScreen() {
 
   const logoutHandler = async () => {
     try {
-      await GoogleSignin.signOut();
       dispatch(logout());
+      await GoogleSignin.signOut();
     } catch (err) {
       console.error('Sign out error', err);
     }
