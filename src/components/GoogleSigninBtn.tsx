@@ -30,6 +30,7 @@ export function GoogleSigninBtn({
       dispatch(addUserInfo(userInfoRes));
       setLoginError(null);
     } catch (err: any) {
+      console.error(err);
       if (err.code === statusCodes.SIGN_IN_CANCELLED) {
         console.log('Sign-in cancelled');
       } else if (err.code === statusCodes.IN_PROGRESS) {
