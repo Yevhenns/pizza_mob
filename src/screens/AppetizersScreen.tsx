@@ -6,7 +6,7 @@ import {ProductsList} from '../components/ProductsList/ProductsList';
 export function AppetizersScreen() {
   return (
     <PagesWrapper>
-      <ProductsList category="appetizers" />
+      <ProductsList category="Закуски" />
     </PagesWrapper>
   );
 }
